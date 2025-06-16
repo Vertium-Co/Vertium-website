@@ -150,11 +150,17 @@ export default function VertiumLanding() {
                 <a
                   key={item}
                   href={`#${item.toLowerCase().replace("ç", "c")}`}
-                  className="relative text-gray-700 hover:text-black transition-all duration-300 font-medium group"
+                  className={`relative font-medium transition-all duration-300 group ${
+                    isDarkMode ? "text-gray-300 hover:text-white" : "text-gray-700 hover:text-black"
+                  }`}
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   {item}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full" />
+                  <span
+                    className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
+                      isDarkMode ? "bg-white" : "bg-black"
+                    }`}
+                  />
                 </a>
               ))}
             </nav>
@@ -283,7 +289,7 @@ export default function VertiumLanding() {
 
             {/* Subtitle */}
             <div className="animate-fade-in-up" style={{ animationDelay: "1200ms" }}>
-              <p className="-mt-2 mb-6 max-w-2xl mx-auto text-lg md:text-xl text-gray-600 dark:text-gray-400">
+              <p className="-mt-2 mb-6 max-w-2xl mx-auto text-lg md:text-xl text-gray-600 dark:text-gray-300">
                 Projetamos e implementamos soluções digitais que geram impacto real e duradouro.
               </p>
             </div>
@@ -321,7 +327,7 @@ export default function VertiumLanding() {
           <div className="text-center mb-20">
             <Badge
               variant="outline"
-              className="mb-6 border-black/20 text-black hover:bg-black hover:text-white transition-all duration-300"
+              className="mb-6 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 transform hover:scale-105"
             >
               Nossos Serviços
             </Badge>
@@ -393,7 +399,7 @@ export default function VertiumLanding() {
             <div className="space-y-8">
               <Badge
                 variant="outline"
-                className="border-black/20 text-black hover:bg-black hover:text-white transition-all duration-300"
+                className="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 transform hover:scale-105"
               >
                 Sobre a Vertium Co.
               </Badge>
@@ -407,7 +413,7 @@ export default function VertiumLanding() {
                 </span>
               </h2>
               <Separator className="w-16 bg-black" />
-              <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
+              <div className="space-y-6 text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                 <p className="transform transition-all duration-300 hover:translate-x-2">
                   Na Vertium Co., acreditamos que a tecnologia é a ponte entre o presente e o futuro. Nossa missão é
                   transformar visões empresariais em soluções digitais robustas e escaláveis.
@@ -444,7 +450,7 @@ export default function VertiumLanding() {
           <div className="text-center mb-20">
             <Badge
               variant="outline"
-              className="mb-6 border-black/20 text-black hover:bg-black hover:text-white transition-all duration-300"
+              className="mb-6 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 transform hover:scale-105"
             >
               Depoimentos
             </Badge>
@@ -505,7 +511,7 @@ export default function VertiumLanding() {
           <div className="text-center mb-20">
             <Badge
               variant="outline"
-              className="mb-6 border-white/30 text-white hover:bg-white hover:text-black transition-all duration-300"
+              className="mb-6 cursor-pointer hover:bg-white/20 transition-all duration-300 transform hover:scale-105"
             >
               Entre em Contato
             </Badge>
