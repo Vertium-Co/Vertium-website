@@ -337,17 +337,39 @@ export default function VertiumLanding() {
             {services.map((service, index) => (
               <Card
                 key={index}
-                className={`group hover:shadow-2xl transition-all duration-500 border-0 shadow-lg ${isDarkMode ? "bg-gray-700 hover:bg-white hover:text-black" : "bg-white hover:bg-black hover:text-white"} cursor-pointer transform hover:scale-105 hover:-translate-y-2`}
+                className={`group transition-all duration-500 cursor-pointer transform hover:scale-105 hover:-translate-y-2 ${
+                  isDarkMode
+                    ? "bg-white/5 border-white/10 backdrop-blur-sm hover:bg-white/10"
+                    : "bg-white border-0 shadow-lg hover:bg-black hover:text-white"
+                }`}
                 style={{ animationDelay: `${index * 200}ms` }}
               >
                 <CardContent className="p-8 h-full flex flex-col">
                   <div className="mb-6">
-                    <div className="w-16 h-16 bg-gray-100 group-hover:bg-white rounded-2xl flex items-center justify-center transition-all duration-500 group-hover:rotate-12">
-                      <service.icon className="h-8 w-8 text-black transition-all duration-500" />
+                    <div
+                      className={`w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-500 group-hover:rotate-12 ${
+                        isDarkMode ? "bg-white/10" : "bg-gray-100 group-hover:bg-white"
+                      }`}
+                    >
+                      <service.icon
+                        className={`h-8 w-8 transition-all duration-500 ${
+                          isDarkMode ? "text-white" : "text-black"
+                        }`}
+                      />
                     </div>
                   </div>
-                  <h3 className="text-xl font-bold mb-4 transition-colors duration-300">{service.title}</h3>
-                  <p className="text-gray-600 group-hover:text-gray-300 leading-relaxed flex-grow transition-colors duration-300">
+                  <h3
+                    className={`text-xl font-bold mb-4 transition-colors duration-300 ${
+                      isDarkMode ? "text-white" : ""
+                    }`}
+                  >
+                    {service.title}
+                  </h3>
+                  <p
+                    className={`leading-relaxed flex-grow transition-colors duration-300 ${
+                      isDarkMode ? "text-gray-300" : "text-gray-600 group-hover:text-gray-300"
+                    }`}
+                  >
                     {service.description}
                   </p>
                   <div className="mt-6 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
