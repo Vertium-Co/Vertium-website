@@ -295,7 +295,11 @@ export default function VertiumLanding() {
             >
               <Button
                 size="lg"
-                className="bg-black hover:bg-gray-800 text-white px-8 py-6 text-lg group transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+                className={`px-8 py-6 text-lg group transition-all duration-300 hover:scale-105 hover:shadow-2xl ${
+                  isDarkMode
+                    ? "bg-white text-black hover:bg-gray-200"
+                    : "bg-black text-white hover:bg-gray-800"
+                }`}
                 onClick={handleScrollToContact}
               >
                 Solicite um orçamento
