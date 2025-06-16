@@ -121,7 +121,7 @@ export default function VertiumLanding() {
       <header
         className={`fixed top-0 w-full z-40 transition-all duration-500 ${
           isScrolled
-            ? `${isDarkMode ? "bg-black/95" : "bg-white/95"} backdrop-blur-xl shadow-lg border-b ${isDarkMode ? "border-gray-700" : "border-gray-100"}`
+            ? `${isDarkMode ? "bg-black/95" : "bg-white/95"} backdrop-blur-xl shadow-lg border-b ${isDarkMode ? "border-neutral-800" : "border-gray-100"}`
             : "bg-transparent"
         }`}
       >
@@ -602,7 +602,7 @@ export default function VertiumLanding() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-black py-12 border-t border-gray-800">
+      <footer className="bg-black py-12 border-t border-neutral-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="flex items-center space-x-3 mb-4 md:mb-0 group cursor-pointer">
