@@ -495,7 +495,7 @@ export default function VertiumLanding() {
                 {
                   icon: Linkedin,
                   title: "LinkedIn",
-                  content: "linkedin.com/company/vertium-co",
+                  content: "linkedin.com/company/vertiumcompany",
                   href: "https://www.linkedin.com/company/107886907",
                 },
                 {
@@ -505,9 +505,12 @@ export default function VertiumLanding() {
                   href: "https://github.com/Vertium-Co",
                 },
               ].map((contact, index) => (
-                <div
+                <a
                   key={contact.title}
-                  className="flex items-start space-x-6 group cursor-pointer transform transition-all duration-300 hover:translate-x-2"
+                  href={contact.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start space-x-6 group transform transition-all duration-300 hover:translate-x-2"
                   style={{ animationDelay: `${index * 200}ms` }}
                 >
                   <div className="w-14 h-14 bg-white text-black rounded-2xl flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:rotate-12">
@@ -517,22 +520,17 @@ export default function VertiumLanding() {
                     <h3 className="text-xl font-bold mb-2 transition-all duration-300 group-hover:tracking-wide">
                       {contact.title}
                     </h3>
-                    <a
-                      href={contact.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-300 hover:text-white transition-colors duration-300"
-                    >
+                    <p className="text-gray-300 group-hover:text-white transition-colors duration-300">
                       {contact.content}
-                    </a>
+                    </p>
                   </div>
-                </div>
+                </a>
               ))}
             </div>
 
             <Card className="bg-white/5 border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all duration-500">
               <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-8">Envie uma mensagem</h3>
+                <h3 className="text-2xl font-bold mb-8 text-gray-300">Envie uma mensagem</h3>
                 <form className="space-y-6">
                   <div className="space-y-2">
                     <label className="block text-sm font-medium text-gray-300">Nome</label>
