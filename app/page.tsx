@@ -105,7 +105,7 @@ export default function VertiumLanding() {
 
   return (
     <div
-      className={`min-h-screen transition-colors duration-500 ${isDarkMode ? "bg-gray-900 text-white" : "bg-white text-black"} overflow-x-hidden`}
+      className={`min-h-screen transition-colors duration-500 ${isDarkMode ? "bg-black text-white" : "bg-white text-black"} overflow-x-hidden`}
     >
       {/* Cursor personalizado */}
       <div
@@ -121,7 +121,7 @@ export default function VertiumLanding() {
       <header
         className={`fixed top-0 w-full z-40 transition-all duration-500 ${
           isScrolled
-            ? `${isDarkMode ? "bg-gray-900/95" : "bg-white/95"} backdrop-blur-xl shadow-lg border-b ${isDarkMode ? "border-gray-700" : "border-gray-100"}`
+            ? `${isDarkMode ? "bg-black/95" : "bg-white/95"} backdrop-blur-xl shadow-lg border-b ${isDarkMode ? "border-gray-700" : "border-gray-100"}`
             : "bg-transparent"
         }`}
       >
@@ -240,7 +240,7 @@ export default function VertiumLanding() {
       {/* Hero Section */}
       <section
         id="home"
-        className={`relative min-h-screen flex items-center justify-center ${isDarkMode ? "bg-gray-900" : "bg-white"}`}
+        className={`relative min-h-screen flex items-center justify-center ${isDarkMode ? "bg-black" : "bg-white"}`}
       >
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
@@ -312,7 +312,7 @@ export default function VertiumLanding() {
       </section>
 
       {/* Services Section */}
-      <section id="servicos" className={`py-20 lg:py-32 ${isDarkMode ? "bg-gray-800" : "bg-gray-50"}`}>
+      <section id="servicos" className={`py-20 lg:py-32 ${isDarkMode ? "bg-neutral-950" : "bg-gray-50"}`}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <Badge
@@ -361,7 +361,7 @@ export default function VertiumLanding() {
       </section>
 
       {/* About Section */}
-      <section id="sobre" className={`py-20 lg:py-32 ${isDarkMode ? "bg-gray-900" : "bg-white"}`}>
+      <section id="sobre" className={`py-20 lg:py-32 ${isDarkMode ? "bg-black" : "bg-white"}`}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <div className="space-y-8">
@@ -413,7 +413,7 @@ export default function VertiumLanding() {
       </section>
 
       {/* Testimonials Section */}
-      <section className={`py-20 lg:py-32 ${isDarkMode ? "bg-gray-800" : "bg-gray-50"}`}>
+      <section className={`py-20 lg:py-32 ${isDarkMode ? "bg-neutral-950" : "bg-gray-50"}`}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <Badge
@@ -437,7 +437,11 @@ export default function VertiumLanding() {
             {testimonials.map((testimonial, index) => (
               <Card
                 key={index}
-                className="border-0 shadow-lg bg-white hover:shadow-2xl transition-all duration-500 group cursor-pointer transform hover:scale-105 hover:-translate-y-2"
+                className={`transition-all duration-500 group cursor-pointer transform hover:scale-105 hover:-translate-y-2 ${
+                  isDarkMode
+                    ? "bg-white/5 border-white/10 backdrop-blur-sm hover:bg-white/10"
+                    : "border-0 shadow-lg"
+                }`}
                 style={{ animationDelay: `${index * 200}ms` }}
               >
                 <CardContent className="p-8 h-full flex flex-col">
@@ -450,15 +454,15 @@ export default function VertiumLanding() {
                       />
                     ))}
                   </div>
-                  <p className="text-gray-600 mb-8 italic leading-relaxed flex-grow transition-all duration-300 group-hover:text-gray-800">
+                  <p className="text-gray-600 dark:text-gray-300 mb-8 italic leading-relaxed flex-grow transition-all duration-300 group-hover:text-gray-800 dark:group-hover:text-gray-100">
                     "{testimonial.content}"
                   </p>
-                  <Separator className="mb-6 bg-gray-200 group-hover:bg-black transition-colors duration-300" />
+                  <Separator className="mb-6 bg-gray-200 dark:bg-gray-800 group-hover:bg-black dark:group-hover:bg-gray-600 transition-colors duration-300" />
                   <div>
-                    <p className="font-bold text-black transition-all duration-300 group-hover:tracking-wide">
+                    <p className="font-bold text-black dark:text-white transition-all duration-300 group-hover:tracking-wide">
                       {testimonial.name}
                     </p>
-                    <p className="text-gray-500 transition-colors duration-300 group-hover:text-gray-600">
+                    <p className="text-gray-500 dark:text-gray-400 transition-colors duration-300 group-hover:text-gray-600 dark:group-hover:text-gray-300">
                       {testimonial.company}
                     </p>
                   </div>
