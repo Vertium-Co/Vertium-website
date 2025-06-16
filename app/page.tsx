@@ -55,6 +55,10 @@ export default function VertiumLanding() {
     }
   }, [isDarkMode])
 
+  const handleScrollToContact = () => {
+    document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" })
+  }
+
   const services = [
     {
       icon: Code2,
@@ -286,22 +290,16 @@ export default function VertiumLanding() {
 
             {/* CTA Buttons */}
             <div
-              className="flex flex-col sm:flex-row gap-6 justify-center animate-fade-in-up"
+              className="flex justify-center animate-fade-in-up"
               style={{ animationDelay: "1400ms" }}
             >
               <Button
                 size="lg"
                 className="bg-black hover:bg-gray-800 text-white px-8 py-6 text-lg group transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+                onClick={handleScrollToContact}
               >
                 Solicite um orçamento
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-black text-black hover:bg-black hover:text-white px-8 py-6 text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl"
-              >
-                Fale conosco
               </Button>
             </div>
           </div>
@@ -568,7 +566,7 @@ export default function VertiumLanding() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-950 py-12 border-t border-gray-800">
+      <footer className="bg-black py-12 border-t border-gray-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="flex items-center space-x-3 mb-4 md:mb-0 group cursor-pointer">
@@ -584,7 +582,7 @@ export default function VertiumLanding() {
               </span>
             </div>
             <p className="text-gray-400 text-center md:text-right transition-colors duration-300 hover:text-gray-300">
-              © 2024 Vertium Co. Todos os direitos reservados.
+              © 2022 Vertium Co. Todos os direitos reservados.
             </p>
           </div>
         </div>
