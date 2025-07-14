@@ -268,7 +268,7 @@ export default function VertiumLanding() {
             <div className="animate-fade-in-up" style={{ animationDelay: "200ms" }}>
               <Badge
                 variant="outline"
-                className="mb-6 text-sm md:text-base cursor-pointer hover:bg-lime-accent/10 hover:border-lime-accent/50 transition-all duration-300 transform hover:scale-105"
+                className="mb-6 text-sm md:text-base cursor-pointer hover:bg-lime-accent/10 border-white/30 hover:border-lime-accent/50 transition-all duration-300 transform hover:scale-105"
               >
                 <span className="mr-2 h-2 w-2 rounded-full bg-lime-accent"></span>
                 Tecnologia que move o mundo
@@ -336,7 +336,7 @@ export default function VertiumLanding() {
           <div className="text-center mb-20">
             <Badge
               variant="outline"
-              className="mb-6 cursor-pointer hover:bg-lime-accent/10 hover:border-lime-accent/50 transition-all duration-300 transform hover:scale-105"
+              className="mb-6 cursor-pointer hover:bg-lime-accent/10 border-white/30 hover:border-lime-accent/50 transition-all duration-300 transform hover:scale-105"
             >
               <span className="mr-2 h-2 w-2 rounded-full bg-lime-accent"></span>
               Nossos Serviços
@@ -344,7 +344,7 @@ export default function VertiumLanding() {
             <h2 className={`text-4xl lg:text-6xl font-bold mb-8 text-white`}>
               Expertise em tecnologia
             </h2>
-            <Separator className="w-24 mx-auto mb-8 bg-white" />
+            <Separator className="w-24 mx-auto mb-8 bg-lime-accent" />
             <p
               className={`text-xl leading-relaxed text-gray-300 max-w-3xl mx-auto`}
             >
@@ -399,7 +399,7 @@ export default function VertiumLanding() {
             <div className="space-y-8">
               <Badge
                 variant="outline"
-                className="cursor-pointer hover:bg-lime-accent/10 hover:border-lime-accent/50 transition-all duration-300 transform hover:scale-105"
+                className="cursor-pointer hover:bg-lime-accent/10 border-white/30 hover:border-lime-accent/50 transition-all duration-300 transform hover:scale-105"
               >
                 <span className="mr-2 h-2 w-2 rounded-full bg-lime-accent"></span>
                 Sobre a Vertium Co.
@@ -451,7 +451,7 @@ export default function VertiumLanding() {
           <div className="text-center mb-20">
             <Badge
               variant="outline"
-              className="mb-6 cursor-pointer hover:bg-lime-accent/10 hover:border-lime-accent/50 transition-all duration-300 transform hover:scale-105"
+              className="mb-6 cursor-pointer hover:bg-lime-accent/10 border-white/30 hover:border-lime-accent/50 transition-all duration-300 transform hover:scale-105"
             >
               <span className="mr-2 h-2 w-2 rounded-full bg-lime-accent"></span>
               Resultados em Números
@@ -459,7 +459,7 @@ export default function VertiumLanding() {
             <h2 className={`text-4xl lg:text-6xl font-bold mb-8 text-white`}>
               Nosso Impacto no Mercado
             </h2>
-            <Separator className="w-24 mx-auto mb-8" />
+            <Separator className="w-24 mx-auto mb-8 bg-lime-accent" />
             <p
               className={`text-xl leading-relaxed text-gray-300 max-w-3xl mx-auto`}
             >
@@ -489,13 +489,13 @@ export default function VertiumLanding() {
           <div className="text-center mb-20">
             <Badge
               variant="outline"
-              className="mb-6 cursor-pointer hover:bg-lime-accent/10 hover:border-lime-accent/50 transition-all duration-300 transform hover:scale-105"
+              className="mb-6 cursor-pointer hover:bg-lime-accent/10 border-white/30 hover:border-lime-accent/50 transition-all duration-300 transform hover:scale-105"
             >
               <span className="mr-2 h-2 w-2 rounded-full bg-lime-accent"></span>
               Entre em Contato
             </Badge>
             <h2 className="text-4xl lg:text-6xl font-bold mb-8">Vamos construir algo incrível juntos</h2>
-            <Separator className="w-24 mx-auto mb-8 bg-white" />
+            <Separator className="w-24 mx-auto mb-8 bg-lime-accent" />
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Pronto para transformar sua ideia em realidade? Entre em contato conosco e descubra como podemos ajudar.
             </p>
