@@ -479,8 +479,8 @@ export default function VertiumLanding() {
       {/* About Section */}
       <section id="sobre" className={`py-20 lg:py-32 bg-black`}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-20 items-center">
-            <div className="space-y-8">
+          <div className="grid lg:grid-cols-5 gap-20 items-center">
+            <div className="space-y-8 lg:col-span-3">
               <Badge
                 variant="outline"
                 className="cursor-pointer hover:bg-lime-accent/10 border-white/30 hover:border-lime-accent/50 transition-all duration-300 transform hover:scale-105"
@@ -513,14 +513,15 @@ export default function VertiumLanding() {
                 </p>
               </div>
             </div>
-            <div className="relative group">
-              <div className="aspect-square bg-gradient-to-br from-gray-900 to-black rounded-3xl p-8 flex items-center justify-center transition-all duration-500 group-hover:rotate-3 group-hover:scale-105">
+            <div className="relative group lg:col-span-2">
+              <div className="aspect-square bg-gradient-to-br from-gray-900 to-black rounded-3xl p-2 flex items-center justify-center transition-all duration-500 group-hover:rotate-3 group-hover:scale-105 overflow-hidden">
                 <Image
-                  src="/images/vertium-logo-alt.png"
-                  alt="Vertium Co. Logo"
-                  width={200}
-                  height={200}
-                  className="w-48 h-48 object-contain transition-all duration-500 group-hover:scale-110 group-hover:rotate-12"
+                  src="https://images.pexels.com/photos/8728223/pexels-photo-8728223.jpeg"
+                  alt="Arquitetura moderna representando a Vertium Co."
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-3xl transition-all duration-500 group-hover:scale-110"
+                  style={{ objectPosition: "50% 20%" }}
                 />
               </div>
               <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-black rounded-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 transform translate-x-4 translate-y-4 -z-10" />
