@@ -38,7 +38,6 @@ interface AnimatedStatProps {
 
 const AnimatedStat: React.FC<AnimatedStatProps> = ({ value, label, delay }) => {
   const [ref, inView] = useInView({
-    triggerOnce: true,
     threshold: 0.1,
   })
 
@@ -451,7 +450,6 @@ export default function VertiumLanding() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-8 gap-y-16">
               {process.map((step, index) => {
                 const [ref, inView] = useInView({
-                  triggerOnce: true,
                   threshold: 0.1,
                 })
 
