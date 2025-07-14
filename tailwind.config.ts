@@ -11,6 +11,7 @@ const config: Config = {
   theme: {
   	extend: {
   		colors: {
+        'lime-accent': 'hsl(var(--lime-accent))',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

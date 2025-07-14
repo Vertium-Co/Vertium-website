@@ -219,9 +219,7 @@ export default function VertiumLanding() {
                 >
                   {item}
                   <span
-                    className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
-                      isDarkMode ? "bg-white" : "bg-black"
-                    }`}
+                    className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full bg-lime-accent`}
                   />
                 </a>
               ))}
@@ -325,7 +323,11 @@ export default function VertiumLanding() {
           <div className="max-w-5xl mx-auto">
             {/* Animated Badge */}
             <div className="animate-fade-in-up" style={{ animationDelay: "200ms" }}>
-              <Badge variant="outline" className="mb-6 text-sm md:text-base cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 transform hover:scale-105">
+              <Badge
+                variant="outline"
+                className="mb-6 text-sm md:text-base cursor-pointer hover:bg-lime-accent/10 hover:border-lime-accent/50 transition-all duration-300 transform hover:scale-105"
+              >
+                <span className="mr-2 h-2 w-2 rounded-full bg-lime-accent"></span>
                 Tecnologia que move o mundo
               </Badge>
             </div>
@@ -389,8 +391,9 @@ export default function VertiumLanding() {
           <div className="text-center mb-20">
             <Badge
               variant="outline"
-              className="mb-6 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 transform hover:scale-105"
+              className="mb-6 cursor-pointer hover:bg-lime-accent/10 hover:border-lime-accent/50 transition-all duration-300 transform hover:scale-105"
             >
+              <span className="mr-2 h-2 w-2 rounded-full bg-lime-accent"></span>
               Nossos Serviços
             </Badge>
             <h2 className={`text-4xl lg:text-6xl font-bold mb-8 ${isDarkMode ? "text-white" : "text-black"}`}>
@@ -461,20 +464,21 @@ export default function VertiumLanding() {
             <div className="space-y-8">
               <Badge
                 variant="outline"
-                className="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 transform hover:scale-105"
+                className="cursor-pointer hover:bg-lime-accent/10 hover:border-lime-accent/50 transition-all duration-300 transform hover:scale-105"
               >
+                <span className="mr-2 h-2 w-2 rounded-full bg-lime-accent"></span>
                 Sobre a Vertium Co.
               </Badge>
               <h2
                 className={`text-4xl lg:text-6xl font-bold leading-tight ${isDarkMode ? "text-white" : "text-black"}`}
               >
                 Conectando ideias à{" "}
-                <span className="relative inline-block">
+                <span className="relative inline-block group">
                   <span className="relative z-10">realidade digital</span>
-                  <span className="absolute bottom-2 left-0 w-full h-3 bg-gray-200 -z-10 transform scale-x-0 origin-left transition-transform duration-1000 hover:scale-x-100" />
+                  <span className="absolute bottom-1 left-0 w-full h-2 bg-lime-accent/30 transform scale-x-0 origin-left transition-transform duration-500 group-hover:scale-x-100" />
                 </span>
               </h2>
-              <Separator className="w-16 bg-black" />
+              <Separator className="w-16 bg-lime-accent" />
               <div className="space-y-6 text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                 <p className="transform transition-all duration-300 hover:translate-x-2">
                   Na Vertium Co., acreditamos que a tecnologia é a ponte entre o presente e o futuro. Nossa missão é
@@ -512,8 +516,9 @@ export default function VertiumLanding() {
           <div className="text-center mb-20">
             <Badge
               variant="outline"
-              className="mb-6 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 transform hover:scale-105"
+              className="mb-6 cursor-pointer hover:bg-lime-accent/10 hover:border-lime-accent/50 transition-all duration-300 transform hover:scale-105"
             >
+              <span className="mr-2 h-2 w-2 rounded-full bg-lime-accent"></span>
               Resultados em Números
             </Badge>
             <h2 className={`text-4xl lg:text-6xl font-bold mb-8 ${isDarkMode ? "text-white" : "text-black"}`}>
@@ -535,7 +540,7 @@ export default function VertiumLanding() {
                   delay={index * 200}
                 />
                 {index < stats.length - 1 && (
-                  <Separator orientation="vertical" className="h-24 hidden md:block" />
+                  <Separator orientation="vertical" className="h-24 hidden md:block bg-lime-accent/30" />
                 )}
               </React.Fragment>
             ))}
@@ -549,8 +554,9 @@ export default function VertiumLanding() {
           <div className="text-center mb-20">
             <Badge
               variant="outline"
-              className="mb-6 cursor-pointer hover:bg-white/20 transition-all duration-300 transform hover:scale-105"
+              className="mb-6 cursor-pointer hover:bg-lime-accent/10 hover:border-lime-accent/50 transition-all duration-300 transform hover:scale-105"
             >
+              <span className="mr-2 h-2 w-2 rounded-full bg-lime-accent"></span>
               Entre em Contato
             </Badge>
             <h2 className="text-4xl lg:text-6xl font-bold mb-8">Vamos construir algo incrível juntos</h2>
@@ -608,7 +614,7 @@ export default function VertiumLanding() {
                     <label className="block text-sm font-medium text-gray-300">Nome</label>
                     <input
                       type="text"
-                      className="w-full px-4 py-4 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent transition-all duration-300 hover:bg-white/15"
+                      className="w-full px-4 py-4 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-lime-accent focus:border-transparent transition-all duration-300 hover:bg-white/15"
                       placeholder="Seu nome"
                     />
                   </div>
@@ -616,7 +622,7 @@ export default function VertiumLanding() {
                     <label className="block text-sm font-medium text-gray-300">Email</label>
                     <input
                       type="email"
-                      className="w-full px-4 py-4 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent transition-all duration-300 hover:bg-white/15"
+                      className="w-full px-4 py-4 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-lime-accent focus:border-transparent transition-all duration-300 hover:bg-white/15"
                       placeholder="seu@email.com"
                     />
                   </div>
@@ -624,7 +630,7 @@ export default function VertiumLanding() {
                     <label className="block text-sm font-medium text-gray-300">Mensagem</label>
                     <textarea
                       rows={4}
-                      className="w-full px-4 py-4 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent transition-all duration-300 hover:bg-white/15 resize-none"
+                      className="w-full px-4 py-4 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-lime-accent focus:border-transparent transition-all duration-300 hover:bg-white/15 resize-none"
                       placeholder="Conte-nos sobre seu projeto..."
                     />
                   </div>
