@@ -186,7 +186,7 @@ export default function VertiumLanding() {
       <header
         className={`fixed top-0 w-full z-40 transition-all duration-500 ${
           isScrolled
-            ? `bg-black/95 backdrop-blur-xl shadow-lg border-b border-neutral-800`
+            ? `bg-black/80 backdrop-blur-xl shadow-lg border-b border-neutral-800`
             : "bg-transparent"
         }`}
       >
