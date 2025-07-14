@@ -513,18 +513,14 @@ export default function VertiumLanding() {
                 </p>
               </div>
             </div>
-            <div className="relative group lg:col-span-2">
-              <div className="aspect-square bg-gradient-to-br from-gray-900 to-black rounded-3xl p-2 flex items-center justify-center transition-all duration-500 group-hover:rotate-3 group-hover:scale-105 overflow-hidden">
-                <Image
-                  src="https://images.pexels.com/photos/8728223/pexels-photo-8728223.jpeg"
-                  alt="Arquitetura moderna representando a Vertium Co."
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-3xl transition-all duration-500 group-hover:scale-110"
-                  style={{ objectPosition: "50% 20%" }}
-                />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-black rounded-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 transform translate-x-4 translate-y-4 -z-10" />
+            <div className="lg:col-span-2 flex items-center justify-center">
+              <Image
+                src="/images/vertium-logo-alt.png"
+                alt="Vertium Co. Logo"
+                width={500}
+                height={500}
+                className="object-contain"
+              />
             </div>
           </div>
         </div>

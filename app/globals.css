@@ -91,14 +91,8 @@
   }
 }
 
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+.ring-lime-accent {
+  --tw-ring-color: #a3ff00;
 }
 
 @keyframes pulse-slow {
@@ -140,10 +134,6 @@
 
 .animate-scale-x {
   animation: scale-x 0.8s ease-out forwards;
-}
-
-.animate-float {
-  animation: float 3s ease-in-out infinite;
 }
 
 .animate-pulse-slow {
