@@ -251,16 +251,16 @@ export default function VertiumLanding() {
         id="home"
         className={`relative min-h-screen flex items-center justify-center bg-black`}
       >
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `radial-gradient(circle at 25% 25%, white 2px, transparent 2px)`,
-              backgroundSize: "50px 50px",
-            }}
-          />
-        </div>
+        {/* Background Image */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `url('/images/hero_background.jpeg')`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        />
+        <div className="absolute inset-0 bg-black/70" /> {/* Overlay para garantir a legibilidade do texto */}
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-5xl mx-auto">
@@ -294,16 +294,16 @@ export default function VertiumLanding() {
               </h1>
             </div>
 
-            {/* Subtitle */}
+            {/* Separator */}
             <div className="animate-fade-in-up" style={{ animationDelay: "1200ms" }}>
-              <p className="-mt-2 mb-8 max-w-2xl mx-auto text-lg md:text-xl text-gray-300">
-                Projetamos e implementamos soluções digitais que geram impacto real e duradouro.
-              </p>
+              <Separator className="w-24 mx-auto bg-lime-accent" />
             </div>
 
-            {/* Separator */}
-            <div className="animate-fade-in-up" style={{ animationDelay: "1300ms" }}>
-              <Separator className="w-24 mx-auto bg-lime-accent" />
+            {/* Subtitle */}
+            <div className="animate-fade-in-up mt-8" style={{ animationDelay: "1300ms" }}>
+              <p className="mb-8 max-w-2xl mx-auto text-lg md:text-xl text-gray-300">
+                Projetamos e implementamos soluções digitais que geram impacto real e duradouro.
+              </p>
             </div>
 
             {/* CTA Buttons */}
