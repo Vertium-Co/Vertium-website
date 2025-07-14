@@ -20,8 +20,76 @@ import {
   ChevronDown,
   Sun,
   Moon,
+  Briefcase,
+  Users,
+  Smile,
 } from "lucide-react"
 import Image from "next/image"
+import { useInView } from "react-intersection-observer"
+import React from "react"
+
+interface AnimatedStatProps {
+  value: number;
+  label: string;
+  delay: number;
+}
+
+const AnimatedStat: React.FC<AnimatedStatProps> = ({ value, label, delay }) => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  })
+
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    if (inView) {
+      let start = 0
+      const end = value
+      if (start === end) return
+
+      const duration = 2000 // 2 segundos para a animação
+      const frameRate = 60 // 60fps
+      const totalFrames = (duration / 1000) * frameRate
+      let frame = 0
+
+      const counter = () => {
+        frame++
+        const progress = frame / totalFrames
+        const currentCount = Math.round(end * (1 - Math.pow(1 - progress, 3))) // Easing easeOutCubic
+
+        if (frame < totalFrames) {
+          setCount(currentCount)
+          requestAnimationFrame(counter)
+        } else {
+          setCount(end)
+        }
+      }
+
+      requestAnimationFrame(counter)
+    }
+  }, [inView, value])
+
+  const formatNumber = (num: number) => {
+    if (num >= 1000000) {
+      return `+${(num / 1000000).toFixed(0)}M`
+    }
+    return `+${num}`
+  }
+
+  return (
+    <div
+      ref={ref}
+      className={`text-center transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      <p className="text-5xl lg:text-6xl font-bold">
+        {inView ? formatNumber(count) : "+0"}
+      </p>
+      <p className="text-lg mt-2 text-gray-500">{label}</p>
+    </div>
+  )
+}
 
 export default function VertiumLanding() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -82,24 +150,18 @@ export default function VertiumLanding() {
     },
   ]
 
-  const testimonials = [
+  const stats = [
     {
-      name: "Carlos Silva",
-      company: "TechStart Ltda",
-      content: "A Vertium Co. transformou nossa visão em realidade. Entrega excepcional e suporte técnico de primeira.",
-      rating: 5,
+      value: 110,
+      label: "Projetos Entregues",
     },
     {
-      name: "Ana Costa",
-      company: "Inovação Digital",
-      content: "Profissionalismo e expertise técnica incomparáveis. Recomendo para qualquer projeto de software.",
-      rating: 5,
+      value: 40,
+      label: "Clientes Satisfeitos",
     },
     {
-      name: "Roberto Mendes",
-      company: "Future Systems",
-      content: "Parceria estratégica que nos levou ao próximo nível. Soluções inovadoras e resultados concretos.",
-      rating: 5,
+      value: 1000000,
+      label: "Usuários Impactados",
     },
   ]
 
@@ -444,7 +506,7 @@ export default function VertiumLanding() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* Stats Section */}
       <section className={`py-20 lg:py-32 ${isDarkMode ? "bg-neutral-950" : "bg-gray-50"}`}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
@@ -452,54 +514,30 @@ export default function VertiumLanding() {
               variant="outline"
               className="mb-6 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 transform hover:scale-105"
             >
-              Depoimentos
+              Resultados em Números
             </Badge>
             <h2 className={`text-4xl lg:text-6xl font-bold mb-8 ${isDarkMode ? "text-white" : "text-black"}`}>
-              O que nossos clientes dizem
+              Nosso Impacto no Mercado
             </h2>
             <Separator className="w-24 mx-auto mb-8 bg-black" />
             <p
               className={`text-xl leading-relaxed ${isDarkMode ? "text-gray-300" : "text-gray-600"} max-w-3xl mx-auto`}
             >
-              A confiança dos nossos parceiros é o reflexo da qualidade e dedicação em cada projeto.
+              A confiança e o sucesso dos nossos clientes, traduzidos em dados que falam por si.
             </p>
           </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <Card
-                key={index}
-                className={`transition-all duration-500 group cursor-pointer transform hover:scale-105 hover:-translate-y-2 ${
-                  isDarkMode
-                    ? "bg-white/5 border-white/10 backdrop-blur-sm hover:bg-white/10"
-                    : "border-0 shadow-lg"
-                }`}
-                style={{ animationDelay: `${index * 200}ms` }}
-              >
-                <CardContent className="p-8 h-full flex flex-col">
-                  <div className="flex mb-6 space-x-1">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className="h-5 w-5 text-yellow-400 fill-current transition-all duration-300 group-hover:scale-110"
-                        style={{ animationDelay: `${i * 100}ms` }}
-                      />
-                    ))}
-                  </div>
-                  <p className="text-gray-600 dark:text-gray-300 mb-8 italic leading-relaxed flex-grow transition-all duration-300 group-hover:text-gray-800 dark:group-hover:text-gray-100">
-                    "{testimonial.content}"
-                  </p>
-                  <Separator className="mb-6 bg-gray-200 dark:bg-gray-800 group-hover:bg-black dark:group-hover:bg-gray-600 transition-colors duration-300" />
-                  <div>
-                    <p className="font-bold text-black dark:text-white transition-all duration-300 group-hover:tracking-wide">
-                      {testimonial.name}
-                    </p>
-                    <p className="text-gray-500 dark:text-gray-400 transition-colors duration-300 group-hover:text-gray-600 dark:group-hover:text-gray-300">
-                      {testimonial.company}
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
+          <div className="flex items-center justify-center space-x-8 md:space-x-16">
+            {stats.map((stat, index) => (
+              <React.Fragment key={index}>
+                <AnimatedStat
+                  value={stat.value}
+                  label={stat.label}
+                  delay={index * 200}
+                />
+                {index < stats.length - 1 && (
+                  <Separator orientation="vertical" className="h-24 hidden md:block" />
+                )}
+              </React.Fragment>
             ))}
           </div>
         </div>
