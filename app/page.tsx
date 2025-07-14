@@ -91,23 +91,16 @@ const AnimatedStat: React.FC<AnimatedStatProps> = ({ value, label, delay }) => {
 export default function VertiumLanding() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
     }
 
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY })
-    }
-
     window.addEventListener("scroll", handleScroll)
-    window.addEventListener("mousemove", handleMouseMove)
 
     return () => {
       window.removeEventListener("scroll", handleScroll)
-      window.removeEventListener("mousemove", handleMouseMove)
     }
   }, [])
 
@@ -157,16 +150,6 @@ export default function VertiumLanding() {
     <div
       className={`min-h-screen bg-black text-white overflow-x-hidden`}
     >
-      {/* Cursor personalizado */}
-      <div
-        className="fixed w-4 h-4 bg-white rounded-full pointer-events-none z-50 mix-blend-difference transition-transform duration-150 ease-out"
-        style={{
-          left: mousePosition.x - 8,
-          top: mousePosition.y - 8,
-          transform: `scale(${isScrolled ? 1.5 : 1})`,
-        }}
-      />
-
       {/* Header */}
       <header
         className={`fixed top-0 w-full z-40 transition-all duration-500 ${
@@ -313,14 +296,19 @@ export default function VertiumLanding() {
 
             {/* Subtitle */}
             <div className="animate-fade-in-up" style={{ animationDelay: "1200ms" }}>
-              <p className="-mt-2 mb-6 max-w-2xl mx-auto text-lg md:text-xl text-gray-300">
+              <p className="-mt-2 mb-8 max-w-2xl mx-auto text-lg md:text-xl text-gray-300">
                 Projetamos e implementamos soluções digitais que geram impacto real e duradouro.
               </p>
             </div>
 
+            {/* Separator */}
+            <div className="animate-fade-in-up" style={{ animationDelay: "1300ms" }}>
+              <Separator className="w-24 mx-auto bg-lime-accent" />
+            </div>
+
             {/* CTA Buttons */}
             <div
-              className="flex justify-center animate-fade-in-up"
+              className="flex justify-center animate-fade-in-up mt-8"
               style={{ animationDelay: "1400ms" }}
             >
               <Button
