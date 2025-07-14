@@ -20,9 +20,6 @@ import {
   ChevronDown,
   Sun,
   Moon,
-  Briefcase,
-  Users,
-  Smile,
 } from "lucide-react"
 import Image from "next/image"
 import { useInView } from "react-intersection-observer"
@@ -95,7 +92,6 @@ export default function VertiumLanding() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-  const [isDarkMode, setIsDarkMode] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -114,14 +110,6 @@ export default function VertiumLanding() {
       window.removeEventListener("mousemove", handleMouseMove)
     }
   }, [])
-
-  useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add("dark")
-    } else {
-      document.documentElement.classList.remove("dark")
-    }
-  }, [isDarkMode])
 
   const handleScrollToContact = () => {
     document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" })
@@ -167,11 +155,11 @@ export default function VertiumLanding() {
 
   return (
     <div
-      className={`min-h-screen transition-colors duration-500 ${isDarkMode ? "bg-black text-white" : "bg-white text-black"} overflow-x-hidden`}
+      className={`min-h-screen bg-black text-white overflow-x-hidden`}
     >
       {/* Cursor personalizado */}
       <div
-        className="fixed w-4 h-4 bg-black rounded-full pointer-events-none z-50 mix-blend-difference transition-transform duration-150 ease-out"
+        className="fixed w-4 h-4 bg-white rounded-full pointer-events-none z-50 mix-blend-difference transition-transform duration-150 ease-out"
         style={{
           left: mousePosition.x - 8,
           top: mousePosition.y - 8,
@@ -183,7 +171,7 @@ export default function VertiumLanding() {
       <header
         className={`fixed top-0 w-full z-40 transition-all duration-500 ${
           isScrolled
-            ? `${isDarkMode ? "bg-black/95" : "bg-white/95"} backdrop-blur-xl shadow-lg border-b ${isDarkMode ? "border-neutral-800" : "border-gray-100"}`
+            ? `bg-black/95 backdrop-blur-xl shadow-lg border-b border-neutral-800`
             : "bg-transparent"
         }`}
       >
@@ -200,7 +188,7 @@ export default function VertiumLanding() {
                 />
               </div>
               <span
-                className={`text-xl lg:text-2xl font-bold transition-all duration-300 group-hover:tracking-wider ${isDarkMode ? "text-white" : "text-black"}`}
+                className={`text-xl lg:text-2xl font-bold transition-all duration-300 group-hover:tracking-wider text-white`}
               >
                 Vertium Co.
               </span>
@@ -212,9 +200,7 @@ export default function VertiumLanding() {
                 <a
                   key={item}
                   href={`#${item.toLowerCase().replace("ç", "c")}`}
-                  className={`relative font-medium transition-all duration-300 group ${
-                    isDarkMode ? "text-gray-300 hover:text-white" : "text-gray-700 hover:text-black"
-                  }`}
+                  className={`relative font-medium transition-all duration-300 group text-gray-300 hover:text-white`}
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   {item}
@@ -224,21 +210,6 @@ export default function VertiumLanding() {
                 </a>
               ))}
             </nav>
-
-            {/* Theme Toggle */}
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsDarkMode(!isDarkMode)}
-              className="hidden md:flex ml-4 relative overflow-hidden group hover:scale-110 transition-all duration-300"
-            >
-              <Sun
-                className={`h-5 w-5 transition-all duration-500 ${isDarkMode ? "rotate-90 scale-0" : "rotate-0 scale-100"}`}
-              />
-              <Moon
-                className={`absolute h-5 w-5 transition-all duration-500 ${isDarkMode ? "rotate-0 scale-100" : "-rotate-90 scale-0"}`}
-              />
-            </Button>
 
             {/* Mobile Menu Button */}
             <Button
@@ -270,13 +241,13 @@ export default function VertiumLanding() {
               isMenuOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
             }`}
           >
-            <div className="bg-white border-t border-gray-100 py-4">
+            <div className="bg-neutral-950 border-t border-neutral-800 py-4">
               <nav className="space-y-2">
                 {["Home", "Serviços", "Sobre", "Contato"].map((item, index) => (
                   <a
                     key={item}
                     href={`#${item.toLowerCase().replace("ç", "c")}`}
-                    className="block px-4 py-3 text-gray-700 hover:text-black hover:bg-gray-50 transition-all duration-300 rounded-lg mx-2"
+                    className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-neutral-900 transition-all duration-300 rounded-lg mx-2"
                     style={{
                       animationDelay: `${index * 100}ms`,
                       transform: isMenuOpen ? "translateX(0)" : "translateX(-20px)",
@@ -288,17 +259,6 @@ export default function VertiumLanding() {
                 ))}
               </nav>
             </div>
-            <div className="px-4 py-2 border-t border-gray-200 dark:border-gray-700">
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => setIsDarkMode(!isDarkMode)}
-                className="w-full justify-start"
-              >
-                {isDarkMode ? <Sun className="h-4 w-4 mr-2" /> : <Moon className="h-4 w-4 mr-2" />}
-                {isDarkMode ? "Modo Claro" : "Modo Escuro"}
-              </Button>
-            </div>
           </div>
         </div>
       </header>
@@ -306,14 +266,14 @@ export default function VertiumLanding() {
       {/* Hero Section */}
       <section
         id="home"
-        className={`relative min-h-screen flex items-center justify-center ${isDarkMode ? "bg-black" : "bg-white"}`}
+        className={`relative min-h-screen flex items-center justify-center bg-black`}
       >
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div
             className="absolute inset-0"
             style={{
-              backgroundImage: `radial-gradient(circle at 25% 25%, black 2px, transparent 2px)`,
+              backgroundImage: `radial-gradient(circle at 25% 25%, white 2px, transparent 2px)`,
               backgroundSize: "50px 50px",
             }}
           />
@@ -353,7 +313,7 @@ export default function VertiumLanding() {
 
             {/* Subtitle */}
             <div className="animate-fade-in-up" style={{ animationDelay: "1200ms" }}>
-              <p className="-mt-2 mb-6 max-w-2xl mx-auto text-lg md:text-xl text-gray-600 dark:text-gray-300">
+              <p className="-mt-2 mb-6 max-w-2xl mx-auto text-lg md:text-xl text-gray-300">
                 Projetamos e implementamos soluções digitais que geram impacto real e duradouro.
               </p>
             </div>
@@ -365,11 +325,8 @@ export default function VertiumLanding() {
             >
               <Button
                 size="lg"
-                className={`px-8 py-6 text-lg group transition-all duration-300 hover:scale-105 hover:shadow-2xl ${
-                  isDarkMode
-                    ? "bg-white text-black hover:bg-gray-200"
-                    : "bg-black text-white hover:bg-gray-800"
-                }`}
+                className={`px-8 py-6 text-lg group transition-all duration-300 hover:scale-105 hover:shadow-2xl 
+                    bg-white text-black hover:bg-gray-200`}
                 onClick={handleScrollToContact}
               >
                 Solicite um orçamento
@@ -386,7 +343,7 @@ export default function VertiumLanding() {
       </section>
 
       {/* Services Section */}
-      <section id="servicos" className={`py-20 lg:py-32 ${isDarkMode ? "bg-neutral-950" : "bg-gray-50"}`}>
+      <section id="servicos" className={`py-20 lg:py-32 bg-neutral-950`}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <Badge
@@ -396,12 +353,12 @@ export default function VertiumLanding() {
               <span className="mr-2 h-2 w-2 rounded-full bg-lime-accent"></span>
               Nossos Serviços
             </Badge>
-            <h2 className={`text-4xl lg:text-6xl font-bold mb-8 ${isDarkMode ? "text-white" : "text-black"}`}>
+            <h2 className={`text-4xl lg:text-6xl font-bold mb-8 text-white`}>
               Expertise em tecnologia
             </h2>
-            <Separator className="w-24 mx-auto mb-8 bg-black" />
+            <Separator className="w-24 mx-auto mb-8 bg-white" />
             <p
-              className={`text-xl leading-relaxed ${isDarkMode ? "text-gray-300" : "text-gray-600"} max-w-3xl mx-auto`}
+              className={`text-xl leading-relaxed text-gray-300 max-w-3xl mx-auto`}
             >
               Oferecemos soluções completas em desenvolvimento de software, desde a concepção até a implementação e
               manutenção.
@@ -412,38 +369,28 @@ export default function VertiumLanding() {
             {services.map((service, index) => (
               <Card
                 key={index}
-                className={`group transition-all duration-500 cursor-pointer transform hover:scale-105 hover:-translate-y-2 ${
-                  isDarkMode
-                    ? "bg-white/5 border-white/10 backdrop-blur-sm hover:bg-white/10"
-                    : "bg-white border-0 shadow-lg hover:bg-black hover:text-white"
-                }`}
+                className={`group transition-all duration-500 cursor-pointer transform hover:scale-105 hover:-translate-y-2 
+                    bg-white/5 border-white/10 backdrop-blur-sm hover:bg-white/10`}
                 style={{ animationDelay: `${index * 200}ms` }}
               >
                 <CardContent className="p-8 h-full flex flex-col">
                   <div className="mb-6">
                     <div
-                      className={`w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-500 group-hover:rotate-12 ${
-                        isDarkMode ? "bg-white/10" : "bg-gray-100 group-hover:bg-white"
-                      }`}
+                      className={`w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-500 group-hover:rotate-12 
+                        bg-white/10`}
                     >
                       <service.icon
-                        className={`h-8 w-8 transition-all duration-500 ${
-                          isDarkMode ? "text-white" : "text-black"
-                        }`}
+                        className={`h-8 w-8 transition-all duration-500 text-white`}
                       />
                     </div>
                   </div>
                   <h3
-                    className={`text-xl font-bold mb-4 transition-colors duration-300 ${
-                      isDarkMode ? "text-white" : ""
-                    }`}
+                    className={`text-xl font-bold mb-4 transition-colors duration-300 text-white`}
                   >
                     {service.title}
                   </h3>
                   <p
-                    className={`leading-relaxed flex-grow transition-colors duration-300 ${
-                      isDarkMode ? "text-gray-300" : "text-gray-600 group-hover:text-gray-300"
-                    }`}
+                    className={`leading-relaxed flex-grow transition-colors duration-300 text-gray-300`}
                   >
                     {service.description}
                   </p>
@@ -458,7 +405,7 @@ export default function VertiumLanding() {
       </section>
 
       {/* About Section */}
-      <section id="sobre" className={`py-20 lg:py-32 ${isDarkMode ? "bg-black" : "bg-white"}`}>
+      <section id="sobre" className={`py-20 lg:py-32 bg-black`}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <div className="space-y-8">
@@ -470,7 +417,7 @@ export default function VertiumLanding() {
                 Sobre a Vertium Co.
               </Badge>
               <h2
-                className={`text-4xl lg:text-6xl font-bold leading-tight ${isDarkMode ? "text-white" : "text-black"}`}
+                className={`text-4xl lg:text-6xl font-bold leading-tight text-white`}
               >
                 Conectando ideias à{" "}
                 <span className="relative inline-block group">
@@ -479,7 +426,7 @@ export default function VertiumLanding() {
                 </span>
               </h2>
               <Separator className="w-16 bg-lime-accent" />
-              <div className="space-y-6 text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+              <div className="space-y-6 text-lg text-gray-300 leading-relaxed">
                 <p className="transform transition-all duration-300 hover:translate-x-2">
                   Na Vertium Co., acreditamos que a tecnologia é a ponte entre o presente e o futuro. Nossa missão é
                   transformar visões empresariais em soluções digitais robustas e escaláveis.
@@ -511,7 +458,7 @@ export default function VertiumLanding() {
       </section>
 
       {/* Stats Section */}
-      <section className={`py-20 lg:py-32 ${isDarkMode ? "bg-neutral-950" : "bg-gray-50"}`}>
+      <section className={`py-20 lg:py-32 bg-neutral-950`}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <Badge
@@ -521,12 +468,12 @@ export default function VertiumLanding() {
               <span className="mr-2 h-2 w-2 rounded-full bg-lime-accent"></span>
               Resultados em Números
             </Badge>
-            <h2 className={`text-4xl lg:text-6xl font-bold mb-8 ${isDarkMode ? "text-white" : "text-black"}`}>
+            <h2 className={`text-4xl lg:text-6xl font-bold mb-8 text-white`}>
               Nosso Impacto no Mercado
             </h2>
-            <Separator className="w-24 mx-auto mb-8 bg-black" />
+            <Separator className="w-24 mx-auto mb-8" />
             <p
-              className={`text-xl leading-relaxed ${isDarkMode ? "text-gray-300" : "text-gray-600"} max-w-3xl mx-auto`}
+              className={`text-xl leading-relaxed text-gray-300 max-w-3xl mx-auto`}
             >
               A confiança e o sucesso dos nossos clientes, traduzidos em dados que falam por si.
             </p>
