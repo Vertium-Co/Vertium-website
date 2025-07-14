@@ -20,6 +20,10 @@ import {
   ChevronDown,
   Sun,
   Moon,
+  Search,
+  DraftingCompass,
+  TestTube2,
+  Rocket,
 } from "lucide-react"
 import Image from "next/image"
 import { useInView } from "react-intersection-observer"
@@ -131,6 +135,34 @@ export default function VertiumLanding() {
     },
   ]
 
+  const process = [
+    {
+      icon: Search,
+      title: "Levantamento",
+      description: "Análise profunda de requisitos e objetivos para garantir o alinhamento total com sua visão.",
+    },
+    {
+      icon: DraftingCompass,
+      title: "Protótipo",
+      description: "Criação de designs de UI/UX e protótipos interativos para validar a experiência do usuário.",
+    },
+    {
+      icon: Code2,
+      title: "Desenvolvimento",
+      description: "Codificação da solução com tecnologias modernas, seguindo as melhores práticas de mercado.",
+    },
+    {
+      icon: TestTube2,
+      title: "Testes",
+      description: "Execução de testes rigorosos para assegurar a qualidade, performance e segurança da aplicação.",
+    },
+    {
+      icon: Rocket,
+      title: "Entrega",
+      description: "Lançamento do projeto, com suporte contínuo e planos para futuras evoluções.",
+    },
+  ]
+
   const stats = [
     {
       value: 110,
@@ -179,7 +211,7 @@ export default function VertiumLanding() {
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
-              {["Home", "Serviços", "Sobre", "Contato"].map((item, index) => (
+              {["Home", "Serviços", "Processo", "Sobre", "Contato"].map((item, index) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase().replace("ç", "c")}`}
@@ -226,7 +258,7 @@ export default function VertiumLanding() {
           >
             <div className="bg-neutral-950 border-t border-neutral-800 py-4">
               <nav className="space-y-2">
-                {["Home", "Serviços", "Sobre", "Contato"].map((item, index) => (
+                {["Home", "Serviços", "Processo", "Sobre", "Contato"].map((item, index) => (
                   <a
                     key={item}
                     href={`#${item.toLowerCase().replace("ç", "c")}`}
@@ -388,6 +420,58 @@ export default function VertiumLanding() {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section id="processo" className="py-20 lg:py-32 bg-black">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-20">
+            <Badge
+              variant="outline"
+              className="mb-6 cursor-pointer hover:bg-lime-accent/10 border-white/30 hover:border-lime-accent/50 transition-all duration-300 transform hover:scale-105"
+            >
+              <span className="mr-2 h-2 w-2 rounded-full bg-lime-accent"></span>
+              Nossa Abordagem
+            </Badge>
+            <h2 className="text-4xl lg:text-6xl font-bold mb-8 text-white">Um Processo Claro e Eficiente</h2>
+            <Separator className="w-24 mx-auto mb-8 bg-lime-accent" />
+            <p className="text-xl leading-relaxed text-gray-300 max-w-3xl mx-auto">
+              Da ideia ao lançamento, seguimos um caminho estruturado para garantir a excelência do seu projeto.
+            </p>
+          </div>
+
+          <div className="relative">
+            {/* Desktop Connector Line */}
+            <div className="hidden lg:block absolute top-12 left-0 w-full h-0.5 bg-neutral-800" />
+
+            {/* Steps Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-8 gap-y-16">
+              {process.map((step, index) => {
+                const [ref, inView] = useInView({
+                  triggerOnce: true,
+                  threshold: 0.1,
+                })
+
+                return (
+                  <div
+                    ref={ref}
+                    key={index}
+                    className={`flex flex-col items-center text-center transition-all duration-700 ${
+                      inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                    }`}
+                    style={{ transitionDelay: `${index * 200}ms` }}
+                  >
+                    <div className="relative z-10 w-24 h-24 rounded-full flex items-center justify-center bg-black border-2 border-lime-accent mb-6 transition-all duration-300 transform group-hover:scale-110">
+                      <step.icon className="h-10 w-10 text-lime-accent" />
+                    </div>
+                    <h3 className="text-xl font-bold mb-2 text-white">{step.title}</h3>
+                    <p className="text-gray-400 leading-relaxed">{step.description}</p>
+                  </div>
+                )
+              })}
+            </div>
           </div>
         </div>
       </section>
