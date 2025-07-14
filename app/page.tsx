@@ -24,6 +24,7 @@ import {
   DraftingCompass,
   TestTube2,
   Rocket,
+  Instagram,
 } from "lucide-react"
 import Image from "next/image"
 import { useInView } from "react-intersection-observer"
@@ -597,6 +598,12 @@ export default function VertiumLanding() {
                   title: "GitHub",
                   content: "github.com/Vertium-Co",
                   href: "https://github.com/Vertium-Co",
+                },
+                {
+                  icon: Instagram,
+                  title: "Instagram",
+                  content: "@vertiumco",
+                  href: "https://instagram.com/vertiumco",
                 },
               ].map((contact, index) => (
                 <a
