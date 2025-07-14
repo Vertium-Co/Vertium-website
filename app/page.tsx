@@ -559,7 +559,7 @@ export default function VertiumLanding() {
                   delay={index * 200}
                 />
                 {index < stats.length - 1 && (
-                  <Separator orientation="vertical" className="h-24 hidden md:block bg-lime-accent" />
+                  <Separator orientation="vertical" className="h-24 hidden md:block bg-white/20" />
                 )}
               </React.Fragment>
             ))}
