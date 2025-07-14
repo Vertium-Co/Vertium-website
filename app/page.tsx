@@ -77,13 +77,13 @@ const AnimatedStat: React.FC<AnimatedStatProps> = ({ value, label, delay }) => {
   return (
     <div
       ref={ref}
-      className={`text-center transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+      className={`flex flex-col items-center transition-all duration-700 w-48 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
       <p className="text-5xl lg:text-6xl font-bold">
         {inView ? formatNumber(count) : "+0"}
       </p>
-      <p className="text-lg mt-2 text-gray-500">{label}</p>
+      <p className="text-lg mt-2 text-gray-300">{label}</p>
     </div>
   )
 }
@@ -368,7 +368,7 @@ export default function VertiumLanding() {
                         bg-white/10`}
                     >
                       <service.icon
-                        className={`h-8 w-8 transition-all duration-500 text-white`}
+                        className={`h-8 w-8 transition-all duration-500 text-lime-accent`}
                       />
                     </div>
                   </div>
@@ -475,7 +475,7 @@ export default function VertiumLanding() {
                   delay={index * 200}
                 />
                 {index < stats.length - 1 && (
-                  <Separator orientation="vertical" className="h-24 hidden md:block bg-lime-accent/30" />
+                  <Separator orientation="vertical" className="h-24 hidden md:block bg-lime-accent" />
                 )}
               </React.Fragment>
             ))}
