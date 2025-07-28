@@ -73,7 +73,20 @@ const AnimatedStat: React.FC<AnimatedStatProps> = ({ value, label, delay }) => {
 
   const formatNumber = (num: number) => {
     if (num >= 1000000) {
-      return `+${(num / 1000000).toFixed(0)}M`
+      return (
+        <>
+          +{Math.floor(num / 1000000)}
+          <span className="text-4xl lg:text-5xl ml-2">M</span>
+        </>
+      )
+    }
+    if (num >= 1000) {
+      return (
+        <>
+          +{Math.floor(num / 1000)}
+          <span className="text-4xl lg:text-5xl ml-2">K</span>
+        </>
+      )
     }
     return `+${num}`
   }
@@ -84,7 +97,7 @@ const AnimatedStat: React.FC<AnimatedStatProps> = ({ value, label, delay }) => {
       className={`flex flex-col items-center transition-all duration-700 w-48 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
-      <p className="text-5xl lg:text-6xl font-bold">
+      <p className="text-5xl lg:text-6xl font-bold flex items-baseline justify-center">
         {inView ? formatNumber(count) : "+0"}
       </p>
       <p className="text-lg mt-2 text-gray-300">{label}</p>
@@ -173,7 +186,7 @@ export default function VertiumLanding() {
       label: "Clientes Satisfeitos",
     },
     {
-      value: 1000000,
+      value: 150000,
       label: "Usuários Impactados",
     },
   ]
