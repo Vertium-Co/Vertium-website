@@ -5,8 +5,11 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Vertium Co.",
+  title: "Vertium Co. | Technology Transformation Specialists",
   description: "Soluções digitais inovadoras e sob medida.",
+  icons: {
+    icon: "/images/vertium-logo.png",
+  },
 };
 
 export default function RootLayout({
