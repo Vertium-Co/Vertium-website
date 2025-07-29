@@ -30,19 +30,19 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 w-full z-40 transition-all duration-500 ${
+      className={`fixed top-0 z-40 w-full transition-all duration-500 ${
         isScrolled
-          ? `bg-black/80 backdrop-blur-xl shadow-lg`
+          ? `bg-black/80 shadow-lg backdrop-blur-xl`
           : 'bg-transparent'
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+        <div className="flex h-16 items-center justify-between lg:h-20">
           <Link href="#home" onClick={(e) => handleLinkClick(e, '#home')}>
             <div className="group flex cursor-pointer items-center space-x-3">
               <div className="relative overflow-hidden">
                 <Image
-                  src="/images/vertium-logo.png"
+                  src="/images/logo-vertium-light.png"
                   alt="Vertium Co."
                   width={40}
                   height={40}

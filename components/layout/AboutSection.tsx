@@ -8,13 +8,13 @@ export function AboutSection() {
   return (
     <section id="sobre" className={`bg-black py-20 lg:py-32`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-5 gap-20 items-center">
+        <div className="grid items-center gap-20 lg:grid-cols-5">
           <div className="space-y-8 lg:col-span-3">
             <Badge
               variant="outline"
-              className="cursor-pointer hover:bg-lime-accent/10 border-white/30 hover:border-lime-accent/50 transition-all duration-300 transform hover:scale-105 text-white"
+              className="cursor-pointer border-white/30 text-white transition-all duration-300 hover:scale-105 hover:border-lime-accent/50 hover:bg-lime-accent/10"
             >
-              <span className="mr-2 h-2 w-2 rounded-full bg-lime-accent"></span>
+              <span className="mr-2 size-2 rounded-full bg-lime-accent"></span>
               Sobre a Vertium Co.
             </Badge>
             <h2 className={`text-4xl font-bold leading-tight text-white lg:text-6xl`}>
@@ -42,9 +42,9 @@ export function AboutSection() {
               </p>
             </div>
           </div>
-          <div className="flex items-center justify-center lg:col-span-2">
+          <div className="lg:col-span-2 flex items-center justify-center">
             <Image
-              src="/images/vertium-logo-alt.png"
+              src="/images/logo-vertium-dark.png"
               alt="Vertium Co. Logo"
               width={500}
               height={500}

@@ -1,6 +1,6 @@
 # Vertium Co. - Website Institucional
 
-![Vertium Co. Cover](public/images/vertium-cover.jpg)
+![Vertium Co. Cover](public/images/og-image-cover.jpg)
 
 Bem-vindo ao repositório do site institucional da **Vertium Co.**, uma empresa de tecnologia especializada em transformação digital e desenvolvimento de software sob medida.
 

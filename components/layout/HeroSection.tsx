@@ -15,7 +15,7 @@ export function HeroSection() {
       <div
         className="absolute inset-0"
         style={{
-          backgroundImage: `url('/images/hero_background.jpeg')`,
+          backgroundImage: `url('/images/background-hero.jpeg')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed',
@@ -23,14 +23,14 @@ export function HeroSection() {
       />
       <div className="absolute inset-0 bg-black/70" />
 
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="max-w-5xl mx-auto">
+      <div className="container relative z-10 mx-auto px-4 text-center sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-5xl">
           <div className="animate-fade-in-up" style={{ animationDelay: '200ms' }}>
             <Badge
               variant="outline"
-              className="mb-6 text-sm md:text-base cursor-pointer hover:bg-lime-accent/10 border-white/30 hover:border-lime-accent/50 transition-all duration-300 transform hover:scale-105 text-white"
+              className="mb-6 cursor-pointer border-white/30 text-sm text-white transition-all duration-300 hover:scale-105 hover:border-lime-accent/50 hover:bg-lime-accent/10 md:text-base"
             >
-              <span className="mr-2 h-2 w-2 rounded-full bg-lime-accent animate-pulse-slow"></span>
+              <span className="animate-pulse-slow mr-2 size-2 rounded-full bg-lime-accent"></span>
               Tecnologia que move o mundo
             </Badge>
           </div>

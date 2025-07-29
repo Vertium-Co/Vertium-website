@@ -97,9 +97,9 @@ export function StatsSection() {
         <div className="mb-20 text-center">
           <Badge
             variant="outline"
-            className="mb-6 cursor-pointer hover:bg-lime-accent/10 border-white/30 hover:border-lime-accent/50 transition-all duration-300 transform hover:scale-105 text-white"
+            className="mb-6 cursor-pointer border-white/30 text-white transition-all duration-300 hover:scale-105 hover:border-lime-accent/50 hover:bg-lime-accent/10"
           >
-            <span className="mr-2 h-2 w-2 rounded-full bg-lime-accent"></span>
+            <span className="mr-2 size-2 rounded-full bg-lime-accent"></span>
             Resultados em Números
           </Badge>
           <h2 className={`mb-8 text-4xl font-bold text-white lg:text-6xl`}>

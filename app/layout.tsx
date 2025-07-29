@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     siteName: 'Vertium Co.',
     images: [
       {
-        url: '/images/vertium-cover.jpg',
+        url: '/images/og-image-cover.jpg',
         width: 1200,
         height: 630,
         alt: 'Vertium Co. Cover Image',
@@ -35,12 +35,12 @@ export const metadata: Metadata = {
     title: 'Vertium Co. | Especialistas em Transformação de Tecnologia',
     description:
       'Especialistas em desenvolvimento de software e soluções digitais inovadoras e sob medida para alavancar o seu negócio.',
-    images: ['/images/vertium-cover.jpg'],
+    images: ['/images/og-image-cover.jpg'],
   },
   icons: {
-    icon: '/images/vertium-logo.png',
-    shortcut: '/images/vertium-logo.png',
-    apple: '/images/vertium-logo.png',
+    icon: '/images/logo-vertium-light.png',
+    shortcut: '/images/logo-vertium-light.png',
+    apple: '/images/logo-vertium-light.png',
   },
 }
 
